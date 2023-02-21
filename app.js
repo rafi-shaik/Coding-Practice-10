@@ -52,7 +52,7 @@ const authenticateToken = (request, response, next) => {
 };
 
 // API 1 user login
-app.post("/login/", authenticateToken, async (request, response) => {
+app.post("/login/", async (request, response) => {
   const { username, password } = request.body;
   const getUserQuery = ` SELECT * FROM user WHERE username = '${username}';`;
   const dbUser = await db.get(getUserQuery);
